@@ -30,9 +30,11 @@ namespace MailingList.Repositories.Implementation
                 {
                     result = result.OrderByDescending(c => c.LastName).OrderByDescending(c => c.FirstName).ToList();
                 }
+
+                return Task.FromResult(result);
             }
 
-            return Task.FromResult(result);
+            return Task.FromResult(mailingListsData);
         }
 
         public string AddMailingList(MailingListRecord request)
